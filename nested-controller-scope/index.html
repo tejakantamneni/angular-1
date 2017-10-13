@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="Nested-Ctrl">
+<head>
+    <meta charset="UTF-8">
+    <title>Controller Functions/Scopes</title>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.js"></script>
+</head>
+<body>
+<!--Both have all props as they are nested-->
+<div ng-controller="ParentController">
+    {{person}}
+    <div ng-controller="ChildController">
+        {{person}}
+    </div>
+</div>
+
+<!--Only name as child is not in this and is not setting-->
+<div ng-controller="ParentController">
+    {{person}}
+</div>
+
+<!--There is no person object here as parent should set it, so it failed-->
+<div ng-controller="ChildController">
+    {{person}}
+</div>
+
+<script type="text/javascript" src="app.js"></script>
+</body>
+</html>
