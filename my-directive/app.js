@@ -1,6 +1,19 @@
+(function () {
+    "use strict";
 
-var app = angular.module("MyDirective", []);
+    var app = angular.module("MyDirective", []);
 
-app.controller('AppController', function ($scope) {
-   $scope.name = "Teja";
-});
+    app.directive('myDirective', function () {
+        return {
+            restrict: 'A',
+            replace: true,
+            scope: {
+                myUrl : '@',
+                myLinkText : '@'
+            },
+            template: '<a href="{{myUrl}}">{{myLinkText}}</a>'
+        };
+    });
+
+
+})();
